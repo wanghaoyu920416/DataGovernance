@@ -108,17 +108,17 @@ export function PreviewPage() {
           </div>
         )}
 
-        <div className="flex gap-4 print:hidden">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 print:hidden">
           <button
             onClick={handleRegenerate}
-            className="flex-1 py-4 rounded-xl font-semibold flex items-center justify-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-700 transition-all"
+            className="py-3 rounded-xl font-semibold flex items-center justify-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-700 transition-all"
           >
             <RefreshCw className="w-5 h-5" />
             重新生成
           </button>
           <button
             onClick={handlePrint}
-            className="flex-1 py-4 rounded-xl font-semibold flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white transition-all shadow-md"
+            className="py-3 rounded-xl font-semibold flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white transition-all shadow-md"
           >
             <Printer className="w-5 h-5" />
             直接打印
@@ -126,11 +126,26 @@ export function PreviewPage() {
           <button
             onClick={handleExport}
             disabled={isExporting}
-            className="flex-1 py-4 rounded-xl font-semibold flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white transition-all shadow-md disabled:opacity-50"
+            className="py-3 rounded-xl font-semibold flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white transition-all shadow-md disabled:opacity-50"
           >
             <Download className="w-5 h-5" />
             {isExporting ? '导出中...' : '导出Word'}
           </button>
+          <button
+            onClick={() => {
+              window.print();
+            }}
+            className="py-3 rounded-xl font-semibold flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white transition-all shadow-md"
+          >
+            <Download className="w-5 h-5" />
+            保存PDF
+          </button>
+        </div>
+
+        <div className="mt-4 p-3 bg-yellow-50 rounded-lg print:hidden">
+          <p className="text-sm text-yellow-700 text-center">
+            💡 提示：点击"保存PDF"或"直接打印"后，选择"另存为PDF"即可保存文件
+          </p>
         </div>
       </main>
     </div>
