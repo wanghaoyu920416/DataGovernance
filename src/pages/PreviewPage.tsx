@@ -68,18 +68,18 @@ export function PreviewPage() {
             </p>
           </div>
 
-          <div className="p-6 print:p-0">
-            <div className="mb-6 print:hidden">
-              <p className="text-gray-600">
-                姓名: _____________ &nbsp;&nbsp; 日期: _____________ &nbsp;&nbsp; 用时: ____分____秒
+          <div className="p-6">
+            <div className="mb-6">
+              <p className="text-gray-600 print:text-black">
+                姓名: ________________ &nbsp;&nbsp; 日期: ________________ &nbsp;&nbsp; 用时: ____分____秒
               </p>
             </div>
 
-            <div className="grid grid-cols-4 gap-4 print:grid-cols-4 print:gap-2 print:p-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 print:grid-cols-4 print:gap-4 print:p-0">
               {questions.map((q, idx) => (
-                <div key={q.id} className="py-2 px-3 border-b border-gray-100 print:border-none">
-                  <span className="text-gray-400 text-xs mr-1">{idx + 1}.</span>
-                  <span className="font-medium text-gray-800">{q.content}</span>
+                <div key={q.id} className="py-3 px-2 border-b border-gray-100 print:border-none print:min-h-[2em]">
+                  <span className="text-gray-500 text-sm mr-2">{idx + 1}.</span>
+                  <span className="font-medium text-gray-800 print:text-black">{q.content}</span>
                   {withAnswer && (
                     <span className="ml-2 text-blue-600 font-semibold">{q.answer}</span>
                   )}
@@ -90,15 +90,15 @@ export function PreviewPage() {
         </div>
 
         {withAnswer && (
-          <div className="bg-white rounded-2xl shadow-lg overflow-hidden mb-6 print:hidden">
+          <div className="bg-white rounded-2xl shadow-lg overflow-hidden mb-6">
             <div className="bg-gradient-to-r from-green-500 to-green-600 p-4 text-white">
               <h2 className="text-lg font-bold text-center">参考答案</h2>
             </div>
             <div className="p-6">
-              <div className="grid grid-cols-4 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
                 {questions.map((q, idx) => (
-                  <div key={`ans-${q.id}`} className="py-2 px-3">
-                    <span className="text-gray-400 text-xs mr-1">{idx + 1}.</span>
+                  <div key={`ans-${q.id}`} className="py-3 px-2">
+                    <span className="text-gray-500 text-sm mr-2">{idx + 1}.</span>
                     <span className="font-medium text-gray-800">{q.content}</span>
                     <span className="ml-2 text-green-600 font-semibold">{q.answer}</span>
                   </div>

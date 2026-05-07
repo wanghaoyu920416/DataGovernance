@@ -21,9 +21,28 @@
   body {
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
+    background: white !important;
   }
   
-  .print\\:hidden {
+  .min-h-screen {
+    min-height: auto !important;
+  }
+  
+  .print\:hidden {
     display: none !important;
+  }
+  
+  .rounded-2xl {
+    border-radius: 0 !important;
+  }
+  
+  .shadow-lg, .shadow-md {
+    box-shadow: none !important;
+  }
+  
+  .bg-gradient-to-r {
+    background: white !important;
+    color: black !important;
+    border-bottom: 2px solid #333 !important;
   }
 }
